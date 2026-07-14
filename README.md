@@ -14,7 +14,7 @@ A premium, privacy-first Chrome extension for capturing and organizing everythin
 
 Keepsy is a Manifest V3 Chrome extension that lives in your toolbar. Right-click anything on the web — a selection, a page, a link — and save it in one click. Everything is stored **locally in your browser**; nothing is ever sent to an external server.
 
-It's built to feel like a small, focused productivity app: fast to open, fast to search, and designed with the same attention to detail as tools like Linear, Raycast, and Arc.
+It's built to feel like a small, focused productivity app: fast to open, fast to search, and designed with the same attention to detail as the best modern productivity tools.
 
 ## Features
 
