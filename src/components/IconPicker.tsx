@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ImagePlus, X } from 'lucide-react'
 import type { ItemType } from '../types'
 import { typeIcons } from '../lib/typeIcons'
@@ -21,16 +22,20 @@ export function IconPicker({ type, icon, onChange }: { type: ItemType; icon?: st
   }
   return <div>
     <div className="mb-1 text-[11px] font-medium text-muted">Icon</div>
-    <div className="flex items-center gap-3 rounded-xl border border-line bg-card p-2.5">
-      <div className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-lg border border-primary/20 bg-primary/10">
-        {icon ? <img src={icon} alt="Custom icon preview" className="size-full object-cover" /> : <img src={typeIcons[type]} alt="" className="size-full object-contain p-1" />}
+    <div className="flex items-center gap-3 rounded-xl border border-line bg-card p-2.5 transition-colors duration-200">
+      <div className="relative grid size-11 shrink-0 place-items-center overflow-hidden rounded-lg border border-primary/20 bg-primary/10">
+        <AnimatePresence mode="wait">
+          {icon
+            ? <motion.img key="custom" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.15 }} src={icon} alt="Custom icon preview" className="size-full object-cover" />
+            : <motion.img key="default" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.15 }} src={typeIcons[type]} alt="" className="size-full object-contain p-1" />}
+        </AnimatePresence>
       </div>
       <div className="flex min-w-0 flex-1 items-center gap-2">
-        <button type="button" onClick={() => inputRef.current?.click()} className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-2.5 py-2 text-[11px] font-medium text-[#81b0ff] transition hover:border-primary/40 hover:bg-primary/10 focus:outline-none focus:ring-4 focus:ring-primary/10">
+        <button type="button" onClick={() => inputRef.current?.click()} className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-surface px-2.5 py-2 text-[11px] font-medium text-[#81b0ff] transition hover:border-primary/40 hover:bg-primary/10 focus:outline-none focus:ring-4 focus:ring-primary/10 active:scale-[.97]">
           <ImagePlus size={13} />Upload Custom Icon
         </button>
         <input ref={inputRef} type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" className="hidden" onChange={e => upload(e.target.files?.[0])} />
-        {icon && <button type="button" title="Remove custom icon" aria-label="Remove custom icon" onClick={() => onChange({ customIcon: undefined })} className="grid size-8 shrink-0 place-items-center rounded-lg text-muted transition hover:bg-white/[.06] hover:text-white"><X size={14} /></button>}
+        {icon && <button type="button" title="Remove custom icon" aria-label="Remove custom icon" onClick={() => onChange({ customIcon: undefined })} className="grid size-8 shrink-0 place-items-center rounded-lg text-muted transition hover:bg-white/[.06] hover:text-white focus:outline-none focus:ring-2 focus:ring-primary active:scale-[.94]"><X size={14} /></button>}
       </div>
     </div>
     <p className="mt-1.5 text-[9px] text-muted/70">PNG, JPG, SVG or WebP. Optimized and stored locally. Remove to restore the default {type} icon.</p>
