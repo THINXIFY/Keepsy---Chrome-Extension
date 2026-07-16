@@ -2,7 +2,7 @@
 
 <img src="public/keepsy-logo.webp" alt="Keepsy" width="360" />
 
-### Save Everything. Find Anything.
+### Smarter Saving. Faster Finding.
 
 A premium, privacy-first Chrome extension for capturing and organizing everything that matters — links, notes, emails, wallets, code, and more — without ever leaving your browser.
 
@@ -45,7 +45,14 @@ It's built to feel like a small, focused productivity app: fast to open, fast to
 ## Screenshots
 
 <div align="center">
-<img src="public/icon128.png" alt="Keepsy icon" width="96" />
+
+| | | |
+|---|---|---|
+| <img src="docs/screenshots/01-home.png" width="240" alt="Home screen with saved items, collections, and filter tabs" /> | <img src="docs/screenshots/02-filters.png" width="240" alt="Filters and sorting panel" /> | <img src="docs/screenshots/03-item-detail.png" width="240" alt="Item detail view for a saved crypto wallet" /> |
+| **Home** — collections, filters, and every saved item at a glance | **Filters & Sorting** — narrow by type, category, tag, or status | **Item Detail** — quick actions like Copy, QR, and Explorer |
+| <img src="docs/screenshots/04-add-new.png" width="240" alt="Add new item form with smart category and tag suggestions" /> | <img src="docs/screenshots/05-settings.png" width="240" alt="Settings screen" /> | <img src="docs/screenshots/06-privacy-policy.png" width="240" alt="In-app privacy policy page" /> |
+| **Add New** — smart Category & Tag suggestions as you type | **Settings** — general, appearance, data, and organization controls | **Privacy Policy** — a clear, in-app breakdown of how your data is handled |
+
 </div>
 
 ## Tech Stack
