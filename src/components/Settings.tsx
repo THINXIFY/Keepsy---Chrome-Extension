@@ -15,6 +15,7 @@ import type { KeepsyItem, SortMode } from '../types'
 import type { AutoEmptyTrash, HomeView, Settings as SettingsData } from '../lib/settings'
 import { InlineSelect } from './ui/InlineSelect'
 import { Switch } from './ui/Switch'
+import { PrivacyPolicy } from './PrivacyPolicy'
 
 function SectionCard({ icon: Icon, title, children }: { icon: typeof Zap; title: string; children: ReactNode }) {
   return <section className="rounded-panel border border-line bg-surface p-3.5">
@@ -78,6 +79,9 @@ export function Settings({
 }) {
   const [confirmClearTrash, setConfirmClearTrash] = useState(false)
   const [confirmClearAll, setConfirmClearAll] = useState(false)
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false)
+
+  if (showPrivacyPolicy) return <PrivacyPolicy onBack={() => setShowPrivacyPolicy(false)} />
 
   return <div className="absolute inset-0 z-20 flex flex-col bg-midnight">
     <header className="flex items-center gap-2 px-4 pb-3 pt-4"><button onClick={onClose} aria-label="Back" className="grid size-9 place-items-center rounded-xl text-muted transition hover:bg-white/[.06] hover:text-white focus:outline-none focus:ring-2 focus:ring-primary"><ArrowLeft size={18} /></button><h1 className="text-[15px] font-semibold tracking-[-.02em] text-white">Settings</h1></header>
@@ -124,7 +128,8 @@ export function Settings({
       </SectionCard>
 
       <SectionCard icon={ShieldCheck} title="Privacy">
-        <p className="px-2 text-[11px] leading-5 text-muted">Everything is stored locally in your browser. No data is sent to external servers.</p>
+        <p className="px-2 pb-1 text-[11px] leading-5 text-muted">Everything is stored locally in your browser. No data is sent to external servers.</p>
+        <Row label="Privacy Policy" detail="How Keepsy handles your data" onClick={() => setShowPrivacyPolicy(true)} />
       </SectionCard>
 
       <SectionCard icon={Info} title="About">

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Keepsy",
   "version": "0.1.0",
-  "description": "Save Everything. Find Anything.",
+  "description": "Smarter Saving. Faster Finding.",
   "permissions": ["storage", "contextMenus"],
   "background": {
     "service_worker": "background.js",
